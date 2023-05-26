@@ -70,12 +70,16 @@ class _WelcomePageState extends State<WelcomePage> {
                       ),
                     ],
                   ),
+                  SizedBox(
+                    height: mediaQuery * 0.03,
+                  ),
                   Row(
                     children: [
                       Expanded(
                           flex: 3,
                           child: AppButton(
-                            text: '',
+                            text: 'Sign In',
+                            textColor: Configuration().colors.primaryWhite,
                             color: Configuration().colors.primaryBlack,
                             onPressed: () {},
                           )),
@@ -83,8 +87,9 @@ class _WelcomePageState extends State<WelcomePage> {
                       Expanded(
                           flex: 3,
                           child: AppButton(
-                            text: '',
-                            color: Configuration().colors.primaryBlack,
+                            text: 'Sign Up',
+                            textColor: Configuration().colors.primaryBlack,
+                            color: Configuration().colors.primaryWhite,
                             onPressed: () {},
                           ))
                     ],

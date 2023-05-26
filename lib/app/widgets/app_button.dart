@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:kota_attack_mobile_app/configurations/configurations.dart';
 
 class AppButton extends StatelessWidget {
-  AppButton({super.key, 
+  AppButton({
+    super.key,
     required this.text,
     required this.onPressed,
     this.trailingIcon,
@@ -43,6 +44,12 @@ class AppButton extends StatelessWidget {
       onPressed: isEnabled ? onPressed : () {},
       style: style ??
           ElevatedButton.styleFrom(
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(5),
+                    topLeft: Radius.circular(5),
+                    bottomLeft: Radius.circular(5),
+                    bottomRight: Radius.circular(5))),
             backgroundColor: color?.withOpacity(isEnabled ? 1 : 0.6) ??
                 colors.primaryColor.withOpacity(isEnabled ? 1 : 0.6),
             elevation: 5,
