@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kota_attack_mobile_app/app/pages/login_page/login_page.dart';
 import 'package:kota_attack_mobile_app/app/widgets/app_button.dart';
 import 'package:kota_attack_mobile_app/app/widgets/app_template.dart';
 import 'package:kota_attack_mobile_app/app/widgets/app_text.dart';
@@ -79,15 +80,24 @@ class _WelcomePageState extends State<WelcomePage> {
                           flex: 3,
                           child: AppButton(
                             text: 'Sign In',
+                            textFontWeight: FontWeight.bold,
                             textColor: Configuration().colors.primaryWhite,
                             color: Configuration().colors.primaryBlack,
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const LoginPage(),
+                                ),
+                              );
+                            },
                           )),
                       Expanded(child: Container()),
                       Expanded(
                           flex: 3,
                           child: AppButton(
                             text: 'Sign Up',
+                            textFontWeight: FontWeight.bold,
                             textColor: Configuration().colors.primaryBlack,
                             color: Configuration().colors.primaryWhite,
                             onPressed: () {},
@@ -119,9 +129,9 @@ class _WelcomePageState extends State<WelcomePage> {
                 AppText(
                   text: 'Kota Attack',
                   fontWeight: FontWeight.bold,
-                  fontSize: Configuration().fontSizes.headerText,
+                  fontSize: Configuration().fontSizes.hearderText2,
                 ),
-                Center(child: Image.asset(ImageAsset.appLogo)),
+                Center(child: SizedBox(child: Image.asset(ImageAsset.appLogo))),
               ],
             ),
           ),

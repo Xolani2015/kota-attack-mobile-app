@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:kota_attack_mobile_app/app/pages/welcome_page/welcome_page.dart';
 import 'package:kota_attack_mobile_app/app/widgets/app_text.dart';
 import 'package:kota_attack_mobile_app/configurations/configurations.dart';
-import 'package:kota_attack_mobile_app/configurations/constants/app_colors.dart';
 import 'package:kota_attack_mobile_app/configurations/constants/app_image_assets.dart';
-import 'package:kota_attack_mobile_app/main.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -101,27 +99,27 @@ class _SplashState extends State<Splash> {
 
   Row _logoWidget(double mediaQuery) {
     return Row(
-          children: [
-            Expanded(
-              child: SizedBox(
-                height: mediaQuery * 0.65,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      height: mediaQuery * 0.05,
-                    ),
-                    AppText(
-                      text: 'Kota Attack',
-                      fontWeight: FontWeight.bold,
-                      fontSize: Configuration().fontSizes.headerText,
-                    ),
-                    Center(child: Image.asset(ImageAsset.appLogo)),
-                  ],
+      children: [
+        Expanded(
+          child: SizedBox(
+            height: mediaQuery * 0.65,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: mediaQuery * 0.05,
                 ),
-              ),
-            )
-          ],
-        );
+                AppText(
+                  text: 'Kota Attack',
+                  fontWeight: FontWeight.bold,
+                  fontSize: Configuration().fontSizes.headerText,
+                ),
+                Center(child: Image.asset(ImageAsset.appLogo)),
+              ],
+            ),
+          ),
+        )
+      ],
+    );
   }
 }

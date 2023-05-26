@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:kota_attack_mobile_app/app/pages/splash_screen_page/splash_screen_page.dart';
+import 'package:kota_attack_mobile_app/app/pages/splash_page/splash_screen_page.dart';
 import 'package:kota_attack_mobile_app/configurations/configurations.dart';
 
 void main() {
