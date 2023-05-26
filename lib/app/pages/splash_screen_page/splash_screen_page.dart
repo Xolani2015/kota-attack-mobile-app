@@ -4,6 +4,7 @@ import 'package:kota_attack_mobile_app/app/widgets/app_text.dart';
 import 'package:kota_attack_mobile_app/configurations/configurations.dart';
 import 'package:kota_attack_mobile_app/configurations/constants/app_colors.dart';
 import 'package:kota_attack_mobile_app/configurations/constants/app_image_assets.dart';
+import 'package:kota_attack_mobile_app/main.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -23,12 +24,12 @@ class _SplashState extends State<Splash> {
     await Future.delayed(
       const Duration(milliseconds: 2500),
     );
-    // Navigator.pushReplacement(
-    //   context,
-    //   MaterialPageRoute(
-    //     builder: (context) => const MyHomePage(title: 'Kota Attack'),
-    //   ),
-    // );
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => const MyHomePage(title: 'Kota Attack'),
+      ),
+    );
   }
 
   @override
