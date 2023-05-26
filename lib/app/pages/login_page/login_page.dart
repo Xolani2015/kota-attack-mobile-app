@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:kota_attack_mobile_app/app/pages/welcome_page/welcome_page.dart';
+import 'package:kota_attack_mobile_app/app/widgets/app_container.dart';
+import 'package:kota_attack_mobile_app/app/widgets/app_input_field.dart';
 import 'package:kota_attack_mobile_app/app/widgets/app_template.dart';
 import 'package:kota_attack_mobile_app/app/widgets/app_text.dart';
 import 'package:kota_attack_mobile_app/configurations/configurations.dart';
@@ -14,6 +16,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context).size.height;
@@ -25,8 +29,49 @@ class _LoginPageState extends State<LoginPage> {
           children: [
             Expanded(
                 child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
               color: Configuration().colors.primaryWhite,
               height: mediaQuery * 0.65,
+              child: Column(children: [
+                AppTextField(
+                  label: 'USERNAME',
+                  controller: _usernameController,
+                ),
+                const SizedBox(height: 15),
+                AppTextField(
+                  label: 'PASSWORD',
+                  controller: _passwordController,
+                  obscureText: true,
+                ),
+                const SizedBox(height: 15),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Expanded(
+                        child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        AppText(
+                          text: 'Forgot Password',
+                          fontSize: Configuration().fontSizes.normalText3,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ],
+                    ))
+                  ],
+                ),
+                const SizedBox(height: 50),
+                Row(
+                  children: [
+                    Expanded(
+                      child: AppContainer(
+                        height: mediaQuery * 0.07,
+                        widget: Row(),
+                      ),
+                    )
+                  ],
+                )
+              ]),
             ))
           ],
         ),
