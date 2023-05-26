@@ -73,10 +73,13 @@ class _SplashState extends State<Splash> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const AppText(
+                      SizedBox(
+                        height: mediaQuery * 0.05,
+                      ),
+                     AppText(
                         text: 'Kota Attack',
                         fontWeight: FontWeight.bold,
-                        fontSize: 40,
+                        fontSize: Configuration().fontSizes.headerText,
                       ),
                       Center(child: Image.asset(ImageAsset.appLogo)),
                     ],
