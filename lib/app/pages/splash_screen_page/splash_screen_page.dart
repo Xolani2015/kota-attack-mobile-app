@@ -41,9 +41,26 @@ class _SplashState extends State<Splash> {
           Row(
             children: [
               Expanded(
-                child: Container(
-                  height: mediaQuery * 0.15,
-                  color: Configuration().colors.primaryAmber,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        height: mediaQuery * 0.15,
+                        decoration: BoxDecoration(
+                            color: Configuration().colors.primaryAmber,
+                            borderRadius: const BorderRadius.only(
+                              bottomRight: Radius.circular(160),
+                            )),
+                      ),
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        height: mediaQuery * 0.15,
+                        color: Configuration().colors.primaryWhite,
+                      ),
+                    ),
+                  ],
                 ),
               )
             ],
@@ -56,7 +73,7 @@ class _SplashState extends State<Splash> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      AppText(
+                      const AppText(
                         text: 'Kota Attack',
                         fontWeight: FontWeight.bold,
                         fontSize: 40,
@@ -71,9 +88,26 @@ class _SplashState extends State<Splash> {
           Row(
             children: [
               Expanded(
-                child: Container(
-                  height: mediaQuery * 0.2,
-                  color: Configuration().colors.primaryAmber,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        height: mediaQuery * 0.2,
+                        color: Configuration().colors.primaryWhite,
+                      ),
+                    ),
+                    Expanded(
+                      flex: 3,
+                      child: Container(
+                        height: mediaQuery * 0.2,
+                        decoration: BoxDecoration(
+                            color: Configuration().colors.primaryAmber,
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(120),
+                            )),
+                      ),
+                    ),
+                  ],
                 ),
               )
             ],
