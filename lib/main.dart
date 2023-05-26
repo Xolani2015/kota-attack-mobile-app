@@ -1,6 +1,6 @@
-import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:kota_attack_mobile_app/configurations/constants/image_assets_const.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:kota_attack_mobile_app/app/pages/splash_screen_page/splash_screen_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,31 +33,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: AnimatedSplashScreen(
-        duration: 3000,
-        splashTransition: SplashTransition.rotationTransition,
-        //   pageTransitionType: PageTransitionType.scale,
-
-        splash: Row(
-          children: [
-            Expanded(
-              child: Container(
-                color: Colors.amber,
-                child: const Icon(
-                  Icons.restaurant,
-                  size: 70,
-                ),
-              ),
-            ),
-          ],
-        ),
-        // splash: Center(
-        //   child: Image.asset(ImageAsset.appLogo),
-        // ),
-        nextScreen: const MyHomePage(
-          title: 'Kota Attack',
-        ),
-      ),
+      home: const Splash(),
     );
   }
 }
