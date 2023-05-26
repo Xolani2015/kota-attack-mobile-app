@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
+import 'package:kota_attack_mobile_app/app/pages/welcome_page/welcome_page.dart';
 import 'package:kota_attack_mobile_app/app/widgets/app_text.dart';
 import 'package:kota_attack_mobile_app/configurations/configurations.dart';
 import 'package:kota_attack_mobile_app/configurations/constants/app_colors.dart';
@@ -27,7 +28,7 @@ class _SplashState extends State<Splash> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => const MyHomePage(title: 'Kota Attack'),
+        builder: (context) => const WelcomePage(),
       ),
     );
   }
@@ -47,7 +48,7 @@ class _SplashState extends State<Splash> {
                       child: Container(
                         height: mediaQuery * 0.15,
                         decoration: BoxDecoration(
-                            color: Configuration().colors.primaryAmber,
+                            color: Configuration().colors.primaryColor,
                             borderRadius: const BorderRadius.only(
                               bottomRight: Radius.circular(160),
                             )),
@@ -65,29 +66,7 @@ class _SplashState extends State<Splash> {
               )
             ],
           ),
-          Row(
-            children: [
-              Expanded(
-                child: SizedBox(
-                  height: mediaQuery * 0.65,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: mediaQuery * 0.05,
-                      ),
-                     AppText(
-                        text: 'Kota Attack',
-                        fontWeight: FontWeight.bold,
-                        fontSize: Configuration().fontSizes.headerText,
-                      ),
-                      Center(child: Image.asset(ImageAsset.appLogo)),
-                    ],
-                  ),
-                ),
-              )
-            ],
-          ),
+          _logoWidget(mediaQuery),
           Row(
             children: [
               Expanded(
@@ -104,7 +83,7 @@ class _SplashState extends State<Splash> {
                       child: Container(
                         height: mediaQuery * 0.2,
                         decoration: BoxDecoration(
-                            color: Configuration().colors.primaryAmber,
+                            color: Configuration().colors.primaryColor,
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(120),
                             )),
@@ -118,5 +97,31 @@ class _SplashState extends State<Splash> {
         ],
       ),
     );
+  }
+
+  Row _logoWidget(double mediaQuery) {
+    return Row(
+          children: [
+            Expanded(
+              child: SizedBox(
+                height: mediaQuery * 0.65,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: mediaQuery * 0.05,
+                    ),
+                    AppText(
+                      text: 'Kota Attack',
+                      fontWeight: FontWeight.bold,
+                      fontSize: Configuration().fontSizes.headerText,
+                    ),
+                    Center(child: Image.asset(ImageAsset.appLogo)),
+                  ],
+                ),
+              ),
+            )
+          ],
+        );
   }
 }

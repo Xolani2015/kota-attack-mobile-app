@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:kota_attack_mobile_app/app/pages/splash_screen_page/splash_screen_page.dart';
+import 'package:kota_attack_mobile_app/configurations/configurations.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +31,8 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Configuration().colors.primaryColor),
         useMaterial3: true,
       ),
       home: const Splash(),

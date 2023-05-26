@@ -16,7 +16,7 @@ abstract class ColourScheme {
     required this.supportBlue,
     required this.primaryOrange,
     required this.primaryRed,
-    required this.primaryAmber,
+    required this.primaryColor,
     required this.liquidMecury,
     required this.mecureyGrey,
     required this.powderBlue,
@@ -36,7 +36,7 @@ abstract class ColourScheme {
   final Color supportBlueGrey;
   final Color primaryRed;
   final Color primaryOrange;
-  final Color primaryAmber;
+  final Color primaryColor;
   final Color liquidMecury;
   final Color mecureyGrey;
   final Color powderBlue;
@@ -59,7 +59,7 @@ class CustomPrimary implements ColourScheme {
       this.supportBlue = const Color(0xFF2196F3),
       this.primaryRed = const Color(0xFFF44336),
       this.primaryOrange = const Color(0xFFFF992B),
-      this.primaryAmber = const Color.fromRGBO(255, 191, 0, 1),
+      this.primaryColor = const Color.fromRGBO(255, 191, 0, 1),
       this.liquidMecury = const Color(0xFF98aeb5),
       this.mecureyGrey = const Color(0xFFe3e3e3),
       //  this.powderBlue = const Color.fromARGB(255, 165, 197, 251),
@@ -94,7 +94,7 @@ class CustomPrimary implements ColourScheme {
   @override
   Color primaryOrange;
   @override
-  Color primaryAmber;
+  Color primaryColor;
   @override
   Color liquidMecury;
   @override
