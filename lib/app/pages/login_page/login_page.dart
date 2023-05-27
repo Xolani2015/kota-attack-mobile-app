@@ -2,11 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:kota_attack_mobile_app/app/pages/welcome_page/welcome_page.dart';
+import 'package:kota_attack_mobile_app/app/widgets/app_button.dart';
 import 'package:kota_attack_mobile_app/app/widgets/app_container.dart';
 import 'package:kota_attack_mobile_app/app/widgets/app_input_field.dart';
 import 'package:kota_attack_mobile_app/app/widgets/app_template.dart';
 import 'package:kota_attack_mobile_app/app/widgets/app_text.dart';
 import 'package:kota_attack_mobile_app/configurations/configurations.dart';
+import 'package:kota_attack_mobile_app/configurations/constants/app_image_assets.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -20,18 +22,22 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController _passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    var mediaQuery = MediaQuery.of(context).size.height;
+    var mediaQueryHeight = MediaQuery.of(context).size.height;
     return AppTemplate(
         pageBody: Column(
       children: [
-        _headerWidget(mediaQuery),
+        _headerWidget(mediaQueryHeight),
+        SizedBox(
+          height: mediaQueryHeight * 0.07,
+        ),
         Row(
           children: [
             Expanded(
                 child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+              padding:
+                  EdgeInsets.symmetric(horizontal: mediaQueryHeight * 0.04),
               color: Configuration().colors.primaryWhite,
-              height: mediaQuery * 0.65,
+              height: mediaQueryHeight * 0.58,
               child: Column(children: [
                 AppTextField(
                   label: 'USERNAME',
@@ -60,13 +66,116 @@ class _LoginPageState extends State<LoginPage> {
                     ))
                   ],
                 ),
-                const SizedBox(height: 50),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                        child: AppButton(
+                      text: 'Sign In',
+                      height: mediaQueryHeight * 0.07,
+                      textFontWeight: FontWeight.bold,
+                      textColor: Configuration().colors.primaryWhite,
+                      color: Configuration().colors.primaryBlack,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginPage(),
+                          ),
+                        );
+                      },
+                    )),
+                  ],
+                ),
+                SizedBox(height: mediaQueryHeight * 0.02),
                 Row(
                   children: [
                     Expanded(
                       child: AppContainer(
-                        height: mediaQuery * 0.07,
-                        widget: Row(),
+                        height: mediaQueryHeight * 0.07,
+                        widget: Row(
+                          children: [
+                            Expanded(
+                                child: Row(
+                              children: [
+                                Container(
+                                  height: 30,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image: AssetImage(ImageAsset.googleImage),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            )),
+                            Expanded(
+                                flex: 3,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: const [
+                                    Row(
+                                      children: [
+                                        AppText(
+                                          text: 'Sign in with Google',
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                )),
+                            Expanded(child: Icon(Icons.arrow_forward))
+                          ],
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+                SizedBox(height: mediaQueryHeight * 0.04),
+                Row(
+                  children: [
+                    Expanded(
+                      child: AppContainer(
+                        height: mediaQueryHeight * 0.07,
+                        widget: Row(
+                          children: [
+                            Expanded(
+                                child: Row(
+                              children: [
+                                Container(
+                                  height: 30,
+                                  width: 30,
+                                  decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                      image:
+                                          AssetImage(ImageAsset.facebookImage),
+                                      fit: BoxFit.fill,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            )),
+                            Expanded(
+                                flex: 3,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: const [
+                                    Row(
+                                      children: [
+                                        AppText(
+                                          text: 'Sign in with Facebook',
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                )),
+                            Expanded(child: Icon(Icons.arrow_forward))
+                          ],
+                        ),
                       ),
                     )
                   ],
@@ -80,7 +189,7 @@ class _LoginPageState extends State<LoginPage> {
             Expanded(
                 child: Container(
               color: Configuration().colors.primaryColor,
-              height: mediaQuery * 0.05,
+              height: mediaQueryHeight * 0.05,
             ))
           ],
         ),
@@ -88,18 +197,18 @@ class _LoginPageState extends State<LoginPage> {
     ));
   }
 
-  Row _headerWidget(double mediaQuery) {
+  Row _headerWidget(double mediaQueryHeight) {
     return Row(
       children: [
         Expanded(
             child: Container(
           padding: EdgeInsets.symmetric(horizontal: 20),
           color: Configuration().colors.primaryColor,
-          height: mediaQuery * 0.3,
+          height: mediaQueryHeight * 0.3,
           child: Column(
             children: [
               SizedBox(
-                height: mediaQuery * 0.07,
+                height: mediaQueryHeight * 0.07,
               ),
               Row(
                 children: [
@@ -128,7 +237,7 @@ class _LoginPageState extends State<LoginPage> {
                 ],
               ),
               SizedBox(
-                height: mediaQuery * 0.03,
+                height: mediaQueryHeight * 0.03,
               ),
               Row(
                 children: [

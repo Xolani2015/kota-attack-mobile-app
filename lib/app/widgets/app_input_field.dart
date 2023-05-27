@@ -48,9 +48,6 @@ class _AppTextFieldState extends State<AppTextField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          widget.label,
-        ),
         const SizedBox(
           height: 5,
         ),
@@ -63,14 +60,14 @@ class _AppTextFieldState extends State<AppTextField> {
               color: Configuration().colors.primaryBlack,
             ),
             decoration: InputDecoration(
-              fillColor: Configuration().colors.primaryWhite,
+              fillColor: Colors.grey,
               filled: true,
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(15),
                 borderSide: BorderSide(
-                  color: Configuration().colors.primaryColor,
+                  color: Configuration().colors.primaryBlack,
                 ),
               ),
               enabledBorder: OutlineInputBorder(
@@ -96,7 +93,7 @@ class _AppTextFieldState extends State<AppTextField> {
             inputFormatters: widget.inputFormatters,
             readOnly: widget.isDisabled == true,
             decoration: InputDecoration(
-              fillColor: Configuration().colors.primaryWhite,
+              fillColor: Configuration().colors.primaryGray,
               filled: true,
               contentPadding:
                   const EdgeInsets.symmetric(horizontal: 10, vertical: 2.5),
@@ -107,7 +104,7 @@ class _AppTextFieldState extends State<AppTextField> {
                             ? Icons.visibility
                             : Icons.visibility_off,
                         size: 17.5,
-                        color: Configuration().colors.liquidMecury,
+                        color: Configuration().colors.primaryBlack,
                       ),
                       onTap: () {
                         setState(() {
@@ -120,14 +117,14 @@ class _AppTextFieldState extends State<AppTextField> {
                   ? OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                       borderSide: BorderSide(
-                        color: Configuration().colors.primaryColor,
+                        color: Configuration().colors.primaryWhite,
                       ),
                     )
                   : null,
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(15),
                 borderSide: BorderSide(
-                  color: Configuration().colors.primaryColor,
+                  color: Configuration().colors.primaryWhite,
                 ),
               ),
             ),

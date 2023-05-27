@@ -46,10 +46,10 @@ class AppButton extends StatelessWidget {
           ElevatedButton.styleFrom(
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(10),
-                    topLeft: Radius.circular(10),
-                    bottomLeft: Radius.circular(10),
-                    bottomRight: Radius.circular(10))),
+                    topRight: Radius.circular(20),
+                    topLeft: Radius.circular(20),
+                    bottomLeft: Radius.circular(20),
+                    bottomRight: Radius.circular(20))),
             backgroundColor: color?.withOpacity(isEnabled ? 1 : 0.6) ??
                 colors.primaryColor.withOpacity(isEnabled ? 1 : 0.6),
             elevation: 5,
