@@ -67,7 +67,7 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
                 SizedBox(
-                  height: 20,
+                  height: mediaQueryHeight * 0.03,
                 ),
                 Row(
                   children: [
@@ -89,7 +89,9 @@ class _LoginPageState extends State<LoginPage> {
                     )),
                   ],
                 ),
-                SizedBox(height: mediaQueryHeight * 0.02),
+                SizedBox(
+                  height: mediaQueryHeight * 0.05,
+                ),
                 Row(
                   children: [
                     Expanded(
