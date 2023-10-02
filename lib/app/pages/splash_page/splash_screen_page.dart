@@ -1,6 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 import 'package:flutter/material.dart';
-import 'package:kota_attack_mobile_app/app/pages/welcome_page/welcome_page.dart';
+import 'package:kota_attack_mobile_app/app/pages/login_page/login_page.dart';
 import 'package:kota_attack_mobile_app/app/widgets/app_text.dart';
 import 'package:kota_attack_mobile_app/configurations/configurations.dart';
 import 'package:kota_attack_mobile_app/configurations/constants/app_image_assets.dart';
@@ -26,7 +26,7 @@ class _SplashState extends State<Splash> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => const WelcomePage(),
+        builder: (context) => const LoginPage(),
       ),
     );
   }

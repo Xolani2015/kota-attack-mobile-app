@@ -37,10 +37,6 @@ class _WelcomePageState extends State<WelcomePage> {
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 decoration: BoxDecoration(
                   color: Configuration().colors.primaryColor,
-                  borderRadius: const BorderRadius.only(
-                    topRight: Radius.circular(40.0),
-                    topLeft: Radius.circular(40.0),
-                  ),
                 ),
                 height: mediaQuery * 0.35,
                 child: Column(children: [
@@ -100,6 +96,7 @@ class _WelcomePageState extends State<WelcomePage> {
                             textFontWeight: FontWeight.bold,
                             textColor: Configuration().colors.primaryBlack,
                             color: Configuration().colors.primaryWhite,
+                            style: ButtonStyle(),
                             onPressed: () {},
                           ))
                     ],

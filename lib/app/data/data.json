@@ -1,0 +1,36 @@
+{
+    "KotaItems" :  [
+        {
+            "id" : 1, 
+            "name" : "Kota", 
+            "description" : "Vianna, Cheese, Burger",
+            "imagepath": "assets/images/gallery/amber.jpg",
+            "price" : 35,
+            "status" : 1
+        },
+        {
+            "id" : 2, 
+            "name" : "Kota", 
+            "description" : "Vianna, Cheese, Palony",
+            "imagepath": "assets/images/gallery/amber.jpg",
+            "price" : 60,
+            "status" : 1
+        },
+        {
+            "id" : 3, 
+            "name" : "Kota", 
+            "description" : "Vianna, Cheese, Burger",
+            "imagepath": "assets/images/gallery/amber.jpg",
+            "price" : 40,
+            "status" : 2
+        },
+        {
+            "id" : 4, 
+            "name" : "Kota", 
+            "description" : "Vianna, Cheese, Burger",
+            "imagepath": "assets/images/gallery/amber.jpg",
+            "price" : 25,
+            "status" : 1
+        }
+    ]
+}

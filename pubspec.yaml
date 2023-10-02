@@ -56,6 +56,7 @@ flutter:
   assets:
      - assets/images/logo/
      - assets/images/general/
+     - assets/images/products/kotas/
 
 
   # The following line ensures that the Material Icons font is

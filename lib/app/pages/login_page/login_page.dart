@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:kota_attack_mobile_app/app/pages/home_page/home_page.dart';
 import 'package:kota_attack_mobile_app/app/pages/welcome_page/welcome_page.dart';
 import 'package:kota_attack_mobile_app/app/widgets/app_button.dart';
 import 'package:kota_attack_mobile_app/app/widgets/app_container.dart';
+import 'package:kota_attack_mobile_app/app/widgets/app_dialogs.dart';
 import 'package:kota_attack_mobile_app/app/widgets/app_input_field.dart';
 import 'package:kota_attack_mobile_app/app/widgets/app_template.dart';
 import 'package:kota_attack_mobile_app/app/widgets/app_text.dart';
@@ -17,9 +19,36 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
+enum LoadingButtonStates {
+  none,
+  signIn,
+  google,
+  facebook,
+}
+
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  LoadingButtonStates _loadingButtonStates = LoadingButtonStates.none;
+
+  void showAuthDialog(LoadingButtonStates loadingButton) async {
+    if (loadingButton == LoadingButtonStates.google) {
+      setState(() {
+        _loadingButtonStates = LoadingButtonStates.google;
+      });
+      await Future.delayed(
+        const Duration(milliseconds: 2500),
+      );
+      setState(() {
+        _loadingButtonStates = LoadingButtonStates.none;
+      });
+      // ignore: use_build_context_synchronously
+      AppDialogs(
+        context: context,
+      ).showGalleryPlayBackDialog();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     var mediaQueryHeight = MediaQuery.of(context).size.height;
@@ -74,7 +103,8 @@ class _LoginPageState extends State<LoginPage> {
                     Expanded(
                         child: AppButton(
                       text: 'Sign In',
-                      height: mediaQueryHeight * 0.07,
+                      textSize: 17.5,
+                      height: mediaQueryHeight * 0.065,
                       textFontWeight: FontWeight.bold,
                       textColor: Configuration().colors.primaryWhite,
                       color: Configuration().colors.primaryBlack,
@@ -82,7 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const LoginPage(),
+                            builder: (context) => const HomePage(),
                           ),
                         );
                       },
@@ -95,42 +125,55 @@ class _LoginPageState extends State<LoginPage> {
                 Row(
                   children: [
                     Expanded(
-                      child: AppContainer(
-                        height: mediaQueryHeight * 0.07,
-                        widget: Row(
-                          children: [
-                            Expanded(
-                                child: Row(
-                              children: [
-                                Container(
-                                  height: 30,
-                                  width: 30,
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage(ImageAsset.googleImage),
-                                      fit: BoxFit.fill,
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            )),
-                            Expanded(
-                                flex: 3,
-                                child: Column(
+                      child: InkWell(
+                        onTap: () async {
+                          showAuthDialog(LoadingButtonStates.google);
+                        },
+                        child: AppContainer(
+                          height: mediaQueryHeight * 0.065,
+                          widget: _loadingButtonStates ==
+                                  LoadingButtonStates.google
+                              ? Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: const [
-                                    Row(
+                                  children: [CircularProgressIndicator()],
+                                )
+                              : Row(
+                                  children: [
+                                    Expanded(
+                                        child: Row(
                                       children: [
-                                        AppText(
-                                          text: 'Sign in with Google',
-                                          fontWeight: FontWeight.bold,
+                                        Container(
+                                          height: 30,
+                                          width: 30,
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                  ImageAsset.googleImage),
+                                              fit: BoxFit.fill,
+                                            ),
+                                          ),
                                         ),
                                       ],
-                                    ),
+                                    )),
+                                    Expanded(
+                                        flex: 3,
+                                        child: Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: const [
+                                            Row(
+                                              children: [
+                                                AppText(
+                                                  text: 'Sign in with Google',
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        )),
+                                    Expanded(child: Icon(Icons.arrow_forward))
                                   ],
-                                )),
-                            Expanded(child: Icon(Icons.arrow_forward))
-                          ],
+                                ),
                         ),
                       ),
                     )
@@ -141,7 +184,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Expanded(
                       child: AppContainer(
-                        height: mediaQueryHeight * 0.07,
+                        height: mediaQueryHeight * 0.065,
                         widget: Row(
                           children: [
                             Expanded(

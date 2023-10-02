@@ -4,25 +4,28 @@ import 'package:flutter/material.dart';
 import 'package:kota_attack_mobile_app/configurations/configurations.dart';
 
 class AppButton extends StatelessWidget {
-  AppButton(
-      {super.key,
-      required this.text,
-      required this.onPressed,
-      this.trailingIcon,
-      this.textColor,
-      this.color,
-      this.style,
-      this.textStyle,
-      this.width,
-      this.height,
-      this.hasFixedSize = true,
-      this.isButtonLoading = false,
-      this.circularLoadingIndicatorColor = Colors.white,
-      this.isEnabled = true,
-      this.textFontWeight});
+  AppButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.trailingIcon,
+    this.textColor,
+    this.color,
+    this.style,
+    this.textStyle,
+    this.width,
+    this.height,
+    this.hasFixedSize = true,
+    this.isButtonLoading = false,
+    this.circularLoadingIndicatorColor = Colors.white,
+    this.isEnabled = true,
+    this.textFontWeight,
+    this.textSize = 12,
+  });
 
   String text;
   Color? textColor;
+  double? textSize;
   FontWeight? textFontWeight;
   Color? color;
   VoidCallback onPressed;
@@ -46,10 +49,10 @@ class AppButton extends StatelessWidget {
           ElevatedButton.styleFrom(
             shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(20),
-                    topLeft: Radius.circular(20),
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20))),
+                    topRight: Radius.circular(10),
+                    topLeft: Radius.circular(10),
+                    bottomLeft: Radius.circular(10),
+                    bottomRight: Radius.circular(10))),
             backgroundColor: color?.withOpacity(isEnabled ? 1 : 0.6) ??
                 colors.primaryColor.withOpacity(isEnabled ? 1 : 0.6),
             elevation: 5,
@@ -60,9 +63,9 @@ class AppButton extends StatelessWidget {
               text,
               style: textStyle ??
                   TextStyle(
-                    color: textColor ?? colors.primaryWhite,
-                    fontWeight: textFontWeight ?? FontWeight.w300,
-                  ),
+                      color: textColor ?? colors.primaryWhite,
+                      fontWeight: textFontWeight ?? FontWeight.w300,
+                      fontSize: textSize),
             )
           : SizedBox(
               height: 20,
